@@ -26,6 +26,10 @@ passport.use(new LocalStrategy(async (username, password, done) => {
 
 app.use(passport.initialize());
 
+app.get('/', (req, res) => {
+    res.send('Hospital Management API is running!');
+});
+
 const isAuthenticated = passport.authenticate('local', { session: false });
 
 app.use('/', authRouter);
